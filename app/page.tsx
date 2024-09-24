@@ -36,12 +36,10 @@ const HomePage: React.FC = () => {
 
         <Divider my="lg" />
 
-        {/* Vertical Navigation */}
         <Group style={{ position: 'absolute', left: 0, top: 150 }}>
           <Button variant="subtle" color="violet">
             Cutter
           </Button>
-          {/* Other buttons such as Remover, Splitter, Pitcher can be added similarly */}
         </Group>
       </Stack>
     </Container>
