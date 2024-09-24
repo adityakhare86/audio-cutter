@@ -35,12 +35,6 @@ const HomePage: React.FC = () => {
         </Button>
 
         <Divider my="lg" />
-
-        <Group style={{ position: 'absolute', left: 0, top: 150 }}>
-          <Button variant="subtle" color="violet">
-            Cutter
-          </Button>
-        </Group>
       </Stack>
     </Container>
   );

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import '@mantine/core/styles.css'; // Import Mantine styles
+import '@mantine/core/styles.css';
 import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core';
 import type { ReactNode } from 'react';
+import { Navbar } from '../components/navbar';
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,7 +39,12 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <MantineProvider defaultColorScheme="dark">
-          {children}
+          <div style={{ display: 'flex' }}>
+            <Navbar /> {/* Add the Navbar */}
+            <main style={{ flex: 1 }}>
+              {children} {/* Main content goes here */}
+            </main>
+          </div>
         </MantineProvider>
       </body>
     </html>
