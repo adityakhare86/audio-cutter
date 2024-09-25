@@ -61,24 +61,17 @@ export function DropzoneButton() {
                 stroke={1.5}
               />
             </Dropzone.Reject>
-            <Dropzone.Idle>
-              <IconCloudUpload style={{ width: rem(50), height: rem(50) }} stroke={1.5} />
-            </Dropzone.Idle>
           </Group>
 
           <Text ta="center" fw={700} fz="lg" mt="xl">
             <Dropzone.Accept>Drop audio files here</Dropzone.Accept>
             <Dropzone.Reject>Audio file must be less than 30 MB</Dropzone.Reject>
-            <Dropzone.Idle>Upload audio file</Dropzone.Idle>
-          </Text>
-          <Text ta="center" fz="sm" mt="xs" c="dimmed">
-            Drag&apos;n&apos;drop audio files here to upload. We can accept only audio files that are less than 30 MB in size.
           </Text>
         </div>
       </Dropzone>
 
       <Button className={classes.control} size="md" radius="xl" onClick={() => openRef.current?.()}>
-        Select files
+        Browse my files
       </Button>
     </div>
   );

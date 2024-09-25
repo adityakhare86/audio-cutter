@@ -37,7 +37,7 @@ export default function RootLayout({
         <MantineProvider defaultColorScheme="dark">
           <div style={{ display: 'flex' }}>
             <Navbar /> {/* Add the Navbar */}
-            <main style={{ flex: 1 }}>
+            <main style={{ flex: 1, background: '#17181d'}}>
               {children} {/* Main content goes here */}
             </main>
           </div>

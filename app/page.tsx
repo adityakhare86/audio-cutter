@@ -2,15 +2,22 @@
 
 import React from 'react';
 import { Container, Text, Title, Stack, Divider } from '@mantine/core';
-import {DropzoneButton} from '../components/dropzoneButton'
+import { DropzoneButton } from '../components/dropzoneButton';
 
 const HomePage: React.FC = () => {
   return (
     <Container
       size="lg"
-      style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{
+        height: '100vh',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#17181d',
+      }}
     >
-      <Stack align="center">
+      <Stack align="center" justify="center">
         <Text color="dimmed" size="sm" mb="md">
           HOW IT WORKS | JOINER
         </Text>
@@ -23,9 +30,12 @@ const HomePage: React.FC = () => {
           Free editor to trim and cut any audio file online
         </Text>
 
-        <DropzoneButton/>
-        <Divider my="lg" />
+        {/* Centering the Dropzone Button */}
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%', alignContent: 'center' }}>
+          <DropzoneButton />
+        </div>
 
+        <Divider my="lg" />
       </Stack>
     </Container>
   );

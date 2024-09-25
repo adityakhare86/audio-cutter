@@ -18,7 +18,7 @@ const ConfirmationPage = () => {
             if (waveformRef.current) {
                 const wavesurferInstance = WaveSurfer.create({
                     container: waveformRef.current,
-                    waveColor: '#00FFBE',
+                    waveColor: '#01fe90',
                     progressColor: '#00FFBE',
                     cursorColor: '#FFFFFF',
                     height: 80,
@@ -93,12 +93,12 @@ const ConfirmationPage = () => {
             fluid
             style={{
                 height: '100vh',
-                width: '100%',
+                width: '100%', // Adjust width to avoid overlap with side navbar
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: '#1A1A1A',
+                backgroundColor: '#17171e',
                 color: 'white',
             }}
         >
@@ -106,10 +106,12 @@ const ConfirmationPage = () => {
             <div
                 style={{
                     position: 'relative',
-                    width: '100%',
-                    maxWidth: '700px',
-                    height: '100px', // Adjust to your preferred height
-                    alignContent: 'center'
+                    width: '90%',
+                    height: '20%', // Adjust to your preferred height
+                    alignContent: 'center',
+                    backgroundColor: '#17181d', // Light grey background
+                    borderRadius: '8px', // Optional: Add some rounded corners
+                    padding: '0 20px', // Padding to keep the thumbs inside the container
                 }}
             >
                 {/* Waveform container */}
@@ -136,12 +138,12 @@ const ConfirmationPage = () => {
                     label={(value) => `${Math.round((value / 100) * audioDuration)}s`}
                     style={{
                         position: 'absolute',
-                        left: 0,
+                        left: '0',
                         top: '50%', // Center vertically
                         zIndex: 10, // Ensure the slider is above the waveform
-                        width: '100%', // Make sure the slider spans the full width
+                        width: '100%',
+                        padding: '0 20px', // Padding to ensure the thumbs are inside the container
                         transform: 'translateY(-50%)', // Adjust to center the slider
-                        padding: 0,
                     }}
                     size="lg"
                     thumbSize={80} // Adjust the thumb size to match the height of the waveform (80px)
@@ -153,8 +155,8 @@ const ConfirmationPage = () => {
                             backgroundColor: '#00FFBE', // Color of the thumbs
                         },
                         track: {
-                            height: '5px', // Keep the track thin and clean
-                            backgroundColor: '#333', // Background color of the track
+                            height: '0px', // Remove the track by setting height to 0
+                            backgroundColor: 'transparent', // Make the track transparent
                         },
                     }}
                 />
@@ -164,11 +166,13 @@ const ConfirmationPage = () => {
             <Group
                 mt="auto"
                 style={{
+                    width: '90%',
                     position: 'absolute',
                     bottom: '20px',
-                    width: '100%',
                     justifyContent: 'space-between',
-                    padding: '0 2rem',
+                    padding: '0 20px',
+                    borderTop: 'solid #262633 2px',
+                    paddingTop: '10px',
                 }}
             >
                 {/* Play / Pause Button */}
@@ -182,12 +186,15 @@ const ConfirmationPage = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        backgroundColor: 'black',
+                        width: '10%',
                     }}
                     onClick={handlePlayPause}
                 >
                     {/* Play / Pause Icon */}
                     <span style={{ marginRight: '8px' }}>
-                        ▶ {/* Play icon for illustration */}
+                        ▷
+                        {/* Play icon for illustration */}
                     </span>
                 </Button>
 
@@ -199,11 +206,12 @@ const ConfirmationPage = () => {
                         value={formatTime((startPosition / 100) * audioDuration)} // Update to reflect trimmed time
                         style={{
                             backgroundColor: '#1A1A1A',
-                            borderRadius: '8px',
-                            padding: '8px 12px',
+                            borderRadius: '24px',
+                            padding: '8px 0px',
                             color: 'white',
                             border: '1px solid #333',
                             textAlign: 'center',
+                            width: '25%',
                         }}
                         readOnly
                     />
@@ -213,23 +221,31 @@ const ConfirmationPage = () => {
                         value={formatTime((endPosition / 100) * audioDuration)} // Update to reflect trimmed time
                         style={{
                             backgroundColor: '#1A1A1A',
-                            borderRadius: '8px',
-                            padding: '8px 12px',
+                            borderRadius: '24px',
+                            padding: '8px 0px',
                             color: 'white',
                             border: '1px solid #333',
                             textAlign: 'center',
+                            width: '25%',
                         }}
                         readOnly
                     />
                 </div>
 
                 {/* Format and Save Button */}
-                <div style={{ display: 'flex', alignItems: 'center', color: 'white' }}>
-                    <Text style={{ marginRight: '8px' }}>format:</Text>
+                <div style={{
+                    display: 'flex', alignItems: 'center',
+                    color: 'white',
+                    border: 'solid #262633 1px',
+                    borderRadius: '24px',
+                    width: '10%',
+                    padding: '0.2%'
+                }}>
+                    <Text style={{ marginRight: '8px', marginLeft: '8px'}}>format:</Text>
                     <Text
                         style={{
                             color: '#00FFBE',
-                            marginRight: '16px',
+                            marginRight: '8px',
                         }}
                     >
                         mp3
@@ -239,7 +255,7 @@ const ConfirmationPage = () => {
                         color="gray"
                         radius="xl"
                         size="md"
-                        style={{ padding: '10px 20px' }}
+                        style={{ background: '#D3D3DF', color: 'black' }}
                     >
                         Save
                     </Button>
