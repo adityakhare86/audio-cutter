@@ -152,7 +152,7 @@ const ConfirmationPage = () => {
                             height: '80px', // Ensure thumbs are the same height as the waveform
                             width: '10px', // Narrow the thumb to keep a clean look
                             borderRadius: '0', // Square ends for better matching
-                            backgroundColor: '#00FFBE', // Color of the thumbs
+                            backgroundColor: 'black', // Color of the thumbs
                         },
                         track: {
                             height: '0px', // Remove the track by setting height to 0
@@ -234,14 +234,16 @@ const ConfirmationPage = () => {
 
                 {/* Format and Save Button */}
                 <div style={{
-                    display: 'flex', alignItems: 'center',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
                     color: 'white',
                     border: 'solid #262633 1px',
                     borderRadius: '24px',
-                    width: '10%',
+                    width: '15%',
                     padding: '0.2%'
                 }}>
-                    <Text style={{ marginRight: '8px', marginLeft: '8px'}}>format:</Text>
+                    <Text style={{ marginRight: '8px', marginLeft: '8px', paddingLeft: '3px'}}>format:</Text>
                     <Text
                         style={{
                             color: '#00FFBE',
@@ -255,7 +257,7 @@ const ConfirmationPage = () => {
                         color="gray"
                         radius="xl"
                         size="md"
-                        style={{ background: '#D3D3DF', color: 'black' }}
+                        style={{ background: '#D3D3DF', color: 'black', width: '100%'}}
                     >
                         Save
                     </Button>
