@@ -93,13 +93,13 @@ const ConfirmationPage = () => {
             fluid
             style={{
                 height: '100vh',
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: '#1A1A1A',
                 color: 'white',
-                padding: '0 2rem',
             }}
         >
             {/* Wrapper for Waveform and Slider */}
@@ -109,14 +109,14 @@ const ConfirmationPage = () => {
                     width: '100%',
                     maxWidth: '700px',
                     height: '100px', // Adjust to your preferred height
-                    marginBottom: '2rem',
+                    alignContent: 'center'
                 }}
             >
                 {/* Waveform container */}
                 <div
                     ref={waveformRef}
                     style={{
-                        position: 'absolute',
+                        position: 'relative',
                         top: 0,
                         left: 0,
                         right: 0,
