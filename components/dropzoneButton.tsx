@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Text, Group, Button, rem, useMantineTheme } from '@mantine/core';
 import { Dropzone } from '@mantine/dropzone';
-import { IconCloudUpload, IconX, IconDownload } from '@tabler/icons-react';
+import { IconX, IconDownload } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation'; // Use the new import
 import classes from './dropzoneButton.module.css';
 

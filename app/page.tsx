@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
     >
       <Stack align="center" justify="center">
         <Text color="dimmed" size="sm" mb="md">
-          HOW IT WORKS | JOINER
+          HOW IT WORKS &nbsp;&nbsp; JOINER
         </Text>
 
         <Title order={1} style={{ fontSize: 40, fontWeight: 900 }}>
