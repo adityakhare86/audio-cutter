@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import '@mantine/core/styles.css';
-import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import type { ReactNode } from 'react';
 import { Navbar } from '../components/navbar';
 
