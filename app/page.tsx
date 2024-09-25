@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
             color: 'white',
             fontWeight: 700
           }}>
-          HOW IT WORKS &nbsp;&nbsp; JOINER
+          HOW IT WORKS &nbsp;&nbsp;&nbsp; JOINER
         </Text>
 
         <Title order={1} style={{ fontSize: 48, fontWeight: 600, color: 'white' }}>

@@ -25,27 +25,37 @@ interface NavbarLinkProps {
 
 function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   return (
-    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
-        <Icon style={{ width: rem(40), height: rem(40) }} stroke={1} />
+    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }} style={{
+      width: '1%'
+    }}>
+      <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}
+      style={{
+        width: '60px',
+        marginLeft: '5px'
+      }}>
+        <div className={classes.linkContent}>
+          <Icon className={classes.icon} style={{ width: rem(25), height: rem(25) }} stroke={1} />
+          <span className={classes.label}>{label}</span>
+        </div>
       </UnstyledButton>
     </Tooltip>
   );
 }
 
+
 const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  { icon: IconCalendarStats, label: 'Releases' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconFingerprint, label: 'Security' },
-  { icon: IconSettings, label: 'Settings' },
-  { icon: IconSettings, label: 'Settings' }
+  { icon: IconHome2, label: 'Remover' },
+  { icon: IconGauge, label: 'Splitter' },
+  { icon: IconDeviceDesktopAnalytics, label: 'Pitcher' },
+  { icon: IconCalendarStats, label: 'Key BPM Finer' },
+  { icon: IconUser, label: 'Cutter' },
+  { icon: IconFingerprint, label: 'Joiner' },
+  { icon: IconSettings, label: 'Recorder' },
+  { icon: IconSettings, label: 'Karoake' }
 ];
 
 export function Navbar() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(4);
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
@@ -57,13 +67,16 @@ export function Navbar() {
   ));
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={classes.navbar} style={{
+      maxHeight: '100vh',
+      marginTop: '15px'
+    }}>
       <Center>
         <MantineLogo type="mark" size={30} />
       </Center>
 
       <div className={classes.navbarMain}>
-        <Stack justify="center" gap={40}>
+        <Stack justify="center" gap={25}>
           {links}
         </Stack>
       </div>
