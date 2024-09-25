@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <symbol id="icon-menu-remover" viewBox="0 0 120 120">
+        <circle cx="25" cy="25" r="25" fill="#39bb81"/>
+        <circle cx="25" cy="95" r="25" fill="#665dc3"/>
+        <path d="m95 35 25 25-25 25z"/>
+        <path stroke="currentColor" stroke-width="10" d="M75 60h20"/>
+    </symbol>
+    <use href="#icon-menu-remover" />
+</svg>
+

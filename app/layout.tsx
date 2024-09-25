@@ -40,9 +40,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <MantineProvider defaultColorScheme="dark">
           <div style={{ display: 'flex' }}>
-            <Navbar /> {/* Add the Navbar */}
+            <Navbar />
             <main style={{ flex: 1 }}>
-              {children} {/* Main content goes here */}
+              {children}
             </main>
           </div>
         </MantineProvider>

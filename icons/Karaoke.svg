@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.989 39.989">
+    <symbol id="icon-menu-karaoke" viewBox="0 0 39.989 39.989">
+        <path d="M19.994 0C8.952 0 0 8.952 0 19.995c0 11.043 8.952 19.994 19.994 19.994s19.995-8.952 19.995-19.994C39.989 8.952 31.037 0 19.994 0zm0 27.745a7.75 7.75 0 1 1 0-15.5 7.75 7.75 0 0 1 0 15.5z"></path>
+    </symbol>
+    <use href="#icon-menu-karaoke" />
+</svg>

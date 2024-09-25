@@ -1,56 +1,84 @@
 "use client";
 
 import { useState } from 'react';
-import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
-import {
-  IconHome2,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
-  IconUser,
-  IconSettings,
-  IconLogout,
-  IconSwitchHorizontal,
-} from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
+import { Text, Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
+import Image from 'next/image';
 import classes from './navbar.module.css';
 
+// Import SVG icons as React components
+import HamburgerIcon from '../icons/Hamburger.svg';
+import SplitterIcon from '../icons/Splitter.svg';
+import PitcherIcon from '../icons/Pitcher.svg';
+import BPMIcon from '../icons/BPM.svg';
+import CutterIcon from '../icons/Cutter.svg';
+import JoinerIcon from '../icons/Joiner.svg';
+import RecorderIcon from '../icons/Recorder.svg';
+import KaraokeIcon from '../icons/Karaoke.svg';
+
+import {
+  IconSwitchHorizontal,
+  IconLogout
+} from '@tabler/icons-react';
+
+// NavbarLinkProps for type safety
 interface NavbarLinkProps {
-  icon: typeof IconHome2;
+  icon: React.ReactNode;
   label: string;
   active?: boolean;
   onClick?(): void;
 }
 
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+// NavbarLink Component
+function NavbarLink({ icon, label, active, onClick }: NavbarLinkProps) {
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
-        <Icon style={{ width: rem(40), height: rem(40) }} stroke={1} />
+      <UnstyledButton
+        onClick={onClick}
+        className={classes.link}
+        data-active={active || undefined}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+        {icon}
+        <Text
+          size="xs"
+          mt={5}
+          style={{
+            maxWidth: '55px',
+            textAlign: 'center',
+            whiteSpace: 'normal',
+            overflowWrap: 'break-word'
+          }}
+        >
+          {label}
+        </Text>
       </UnstyledButton>
     </Tooltip>
   );
 }
 
+// Mock Data Array for Navbar Links
 const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  { icon: IconCalendarStats, label: 'Releases' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconFingerprint, label: 'Security' },
-  { icon: IconSettings, label: 'Settings' },
-  { icon: IconSettings, label: 'Settings' }
+  { icon: <Image src='../icons/Hamburger.svg' alt="Remover" width={40} height={32} />, label: 'Remover' },
+  { icon: <Image src={SplitterIcon} alt="Splitter" width={40} height={32} />, label: 'Splitter' },
+  { icon: <Image src={PitcherIcon} alt="Pitcher" width={40} height={32} />, label: 'Pitcher' },
+  { icon: <Image src={BPMIcon} alt="Key BPM Finder" width={40} height={32} />, label: 'Key BPM Finder' },
+  { icon: <Image src={CutterIcon} alt="Cutter" width={40} height={32} />, label: 'Cutter' },
+  { icon: <Image src={JoinerIcon} alt="Joiner" width={40} height={32} />, label: 'Joiner' },
+  { icon: <Image src={RecorderIcon} alt="Recorder" width={40} height={32} />, label: 'Recorder' },
 ];
 
-export function Navbar() {
-  const [active, setActive] = useState(2);
+console.log("hhereeeeeeeeee: ", HamburgerIcon);
 
+// Navbar Component
+export function Navbar() {
+  const [active, setActive] = useState(0);
+
+  // Render Navbar Links from mockdata
   const links = mockdata.map((link, index) => (
     <NavbarLink
-      {...link}
       key={link.label}
+      icon={link.icon}
+      label={link.label}
       active={index === active}
       onClick={() => setActive(index)}
     />
@@ -59,18 +87,18 @@ export function Navbar() {
   return (
     <nav className={classes.navbar}>
       <Center>
-        <MantineLogo type="mark" size={30} />
+        <Image src='../icons/Hamburger.svg' alt="Menu" width={30} height={30} />
       </Center>
 
       <div className={classes.navbarMain}>
-        <Stack justify="center" gap={40}>
+        <Stack justify="center" gap={30} style={{ overflowY: 'scroll', maxHeight: '70vh' }}>
           {links}
         </Stack>
       </div>
 
       <Stack justify="center" gap={20}>
-        <NavbarLink icon={IconSwitchHorizontal} label="Change account" />
-        <NavbarLink icon={IconLogout} label="Logout" />
+        <NavbarLink icon={<IconSwitchHorizontal />} label="Change account" />
+        <NavbarLink icon={<IconLogout />} label="Logout" />
       </Stack>
     </nav>
   );
