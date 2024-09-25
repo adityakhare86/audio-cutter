@@ -19,7 +19,7 @@ export function DropzoneButton() {
   const handleDrop = (files: File[]) => {
     if (files.length > 0) {
       const reader = new FileReader();
-  
+
       reader.onload = (e) => {
         const arrayBuffer = e.target?.result;
         if (arrayBuffer) {
@@ -28,9 +28,9 @@ export function DropzoneButton() {
           sessionStorage.setItem('uploadedFileData', JSON.stringify(Array.from(uint8Array)));
         }
       };
-  
+
       reader.readAsArrayBuffer(files[0]);
-      sessionStorage.setItem('uploadedFileName', files[0].name); 
+      sessionStorage.setItem('uploadedFileName', files[0].name);
       router.push('/confirmation'); // Redirect to confirmation page
     }
   };
@@ -70,7 +70,16 @@ export function DropzoneButton() {
         </div>
       </Dropzone>
 
-      <Button className={classes.control} size="md" radius="xl" onClick={() => openRef.current?.()}>
+      <Button
+        className={classes.control}
+        size="md" 
+        radius="xl" 
+        onClick={() => openRef.current?.()}
+        style={{
+          border: 'solid 2px #675cb6',
+          background: '#17181d'
+        }}
+        >
         Browse my files
       </Button>
     </div>

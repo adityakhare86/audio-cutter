@@ -18,15 +18,27 @@ const HomePage: React.FC = () => {
       }}
     >
       <Stack align="center" justify="center">
-        <Text color="dimmed" size="sm" mb="md">
+        <Text
+          size="sm"
+          mb="md"
+          style={{
+            color: 'white',
+            fontWeight: 700
+          }}>
           HOW IT WORKS &nbsp;&nbsp; JOINER
         </Text>
 
-        <Title order={1} style={{ fontSize: 40, fontWeight: 900 }}>
+        <Title order={1} style={{ fontSize: 48, fontWeight: 600, color: 'white' }}>
           Audio Cutter
         </Title>
 
-        <Text color="dimmed" size="lg" mt="sm" mb="md">
+        <Text
+          size="lg"
+          mt="sm"
+          mb="md"
+          style={{
+            color: 'white'
+          }}>
           Free editor to trim and cut any audio file online
         </Text>
 
