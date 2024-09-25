@@ -1,7 +1,6 @@
-// components/DropzoneButton.tsx
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Text, Group, Button, rem, useMantineTheme } from '@mantine/core';
-import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
+import { Dropzone } from '@mantine/dropzone';
 import { IconCloudUpload, IconX, IconDownload } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation'; // Use the new import
 import classes from './dropzoneButton.module.css';
@@ -11,14 +10,28 @@ export function DropzoneButton() {
   const openRef = useRef<() => void>(null);
   const router = useRouter();
 
+  // Clear any uploaded files in sessionStorage on component mount
+  useEffect(() => {
+    sessionStorage.removeItem('uploadedFileData');
+    sessionStorage.removeItem('uploadedFileName');
+  }, []);
+
   const handleDrop = (files: File[]) => {
     if (files.length > 0) {
-      // Store the file in session storage for temporary access
-      sessionStorage.setItem('uploadedFileName', files[0].name);
-      // Delay redirect to ensure session storage is set
-      setTimeout(() => {
-        router.push('/confirmation'); // Redirect to confirmation page
-      }, 200); // small delay to ensure sessionStorage is set
+      const reader = new FileReader();
+  
+      reader.onload = (e) => {
+        const arrayBuffer = e.target?.result;
+        if (arrayBuffer) {
+          // Store the file data in sessionStorage as a stringified Uint8Array
+          const uint8Array = new Uint8Array(arrayBuffer as ArrayBuffer);
+          sessionStorage.setItem('uploadedFileData', JSON.stringify(Array.from(uint8Array)));
+        }
+      };
+  
+      reader.readAsArrayBuffer(files[0]);
+      sessionStorage.setItem('uploadedFileName', files[0].name); 
+      router.push('/confirmation'); // Redirect to confirmation page
     }
   };
 
@@ -29,9 +42,7 @@ export function DropzoneButton() {
         onDrop={handleDrop}
         className={classes.dropzone}
         radius="md"
-        accept={[
-          'audio/*'
-        ]}
+        accept={['audio/*']}
         maxSize={30 * 1024 ** 2} // 30 MB
       >
         <div style={{ pointerEvents: 'none' }}>
