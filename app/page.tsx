@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Button, Container, Text, Title, Stack, Divider } from '@mantine/core';
+import React from 'react';
+import { Container, Text, Title, Stack, Divider } from '@mantine/core';
 import {DropzoneButton} from '../components/dropzoneButton'
 
 const HomePage: React.FC = () => {
